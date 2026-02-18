@@ -1,0 +1,443 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #fceabb 100%);
+  color: #333;
+  min-height: 100vh;
+  padding-top: 82px;
+  /* Espaço para header fixo */
+}
+
+/* Loader */
+
+#loader {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.93);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s, visibility 0.6s;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.spinner {
+  border: 8px solid #ffe0b2;
+  border-top: 8px solid #ee0979;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite;
+}
+
+/* Animação de rotação */
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Header fixo */
+
+header {
+  background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+  padding: 30px 0;
+  box-shadow: 0 4px 16px rgba(211, 44, 125, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  list-style: none;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+header nav a:hover {
+  color: #ffeb3b;
+}
+
+/* Fade-in nas seções */
+
+section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Página Principal - imagem de destaque preenche toda a largura e altura inicial */
+
+.pagina-principal {
+  min-height: 60vh;
+  background: #fffbe7;
+  padding: 0;
+  box-shadow: 0 4px 24px rgba(255, 106, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.pagina-principal > div {
+  width: 100vw;
+  height: 100%;
+  min-height: 60vh;
+  position: relative;
+}
+
+/* Título da Página Principal */
+
+.pagina-principal h1 {
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 4.6vw;
+  color: #ee0979;
+  margin-bottom: 0;
+  text-shadow: 2px 2px 16px #fffbe7, 0 2px 15px #ffeb3b80;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 2vw;
+  font-weight: 600;
+}
+
+/* Imagem de fundo da Página Principal */
+
+.pagina-principal img {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-height: 85vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  margin: 0;
+  box-shadow: none;
+  filter: brightness(0.9);
+  transition: filter 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* Seção Principal com glassmorphism (Um Espaço Feito Para Você se Sentir Maravilhosa)*/
+
+.secao-principal {
+  max-width: 700px;
+  margin: 48px auto 32px auto;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 32px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgba(255, 106, 0, 0.07);
+  text-align: center;
+}
+
+.secao-principal h2 {
+  color: #ff6a00;
+  font-size: 2rem;
+  margin-bottom: 18px;
+}
+
+.secao-principal p {
+  color: #888;
+  font-size: 1.16rem;
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+/* Botão Agendar */
+
+.botao-agendar {
+  display: inline-block;
+  margin: 24px auto 0 auto;
+  padding: 16px 34px;
+  background: linear-gradient(90deg, #ee0979, #ff6a00);
+  color: #fff;
+  border-radius: 32px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 16px #ff6a0033;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.botao-agendar:hover {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  transform: scale(1.05);
+}
+
+/* Serviços */
+
+.servicos {
+  background: linear-gradient(90deg, #fffbe7 20%, #fceabb 100%);
+  padding: 48px 0 32px 0;
+  text-align: center;
+}
+
+.servicos h2 {
+  color: #ee0979;
+  font-size: 2rem;
+  margin-bottom: 26px;
+  letter-spacing: 1px;
+}
+
+.servicos ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 38px;
+  list-style: none;
+  padding: 0;
+}
+
+.servicos li {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 22px 38px;
+  border-radius: 18px;
+  font-size: 1.15rem;
+  color: #ff6a00;
+  font-weight: bold;
+  box-shadow: 0 2px 16px rgba(255, 106, 0, 0.1);
+  transition: transform 0.17s, background 0.17s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.servicos li:hover {
+  background: #ffefc3;
+  transform: scale(1.07);
+  cursor: pointer;
+}
+
+.servicos li i {
+  margin-right: 10px;
+  color: #ee0979;
+  font-size: 1.1em;
+}
+
+/* Depoimentos (O que Nossas Clientes Dizem) */
+
+.depoimentos {
+  background: #fffbe7;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.depoimentos h2 {
+  color: #ee0979;
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+.depoimento {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding: 20px 28px;
+  margin: 12px 8px;
+  box-shadow: 0 2px 12px #ee097930;
+  max-width: 320px;
+  vertical-align: top;
+  text-align: left;
+}
+
+.depoimento p {
+  font-style: italic;
+  color: #333;
+}
+.depoimento span {
+  display: block;
+  margin-top: 10px;
+  color: #ff6a00;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+/* Contato & Sobre com glassmorphism */
+
+.contato,
+.sobre {
+  max-width: 650px;
+  margin: 40px auto 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 32px 38px;
+  border-radius: 20px;
+  box-shadow: 0 6px 32px rgba(238, 9, 121, 0.07);
+  text-align: center;
+}
+
+.contato h2,
+.sobre h2 {
+  color: #ff6a00;
+  font-size: 1.7rem;
+  margin-bottom: 16px;
+}
+
+.contato p,
+.sobre p {
+  color: #555;
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+/* Botão do WhatsApp */
+
+.botao-whatsapp {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 99;
+  transition: transform 0.18s;
+}
+
+.botao-whatsapp img {
+  border-radius: 50%;
+  box-shadow: 0 6px 16px #25d36666;
+}
+
+.botao-whatsapp:hover {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+/* Footer */
+
+footer {
+  margin-top: 50px;
+  padding: 35px 0 20px 0;
+  background: linear-gradient(90deg, #ff6a00 0%, #ee0979 100%);
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 1.08rem;
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -2px 16px rgba(255, 106, 0, 0.09);
+}
+
+/* Responsividade */
+
+@media (max-width: 1100px) {
+  .servicos ul {
+    gap: 20px;
+  }
+  .servicos li {
+    padding: 15px 18px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pagina-principal > div,
+  .pagina-principal img {
+    height: 38vh;
+    min-height: 36vh;
+    max-height: 48vh;
+  }
+  .pagina-principal {
+    min-height: 36vh;
+  }
+  .pagina-principal h1 {
+    font-size: 1.35rem;
+    top: 12%;
+    padding: 0 4vw;
+  }
+  .secao-principal,
+  .contato,
+  .sobre {
+    padding: 24px 8vw;
+  }
+}
+
+@media (max-width: 750px) {
+  header nav ul {
+    gap: 20px;
+  }
+  .secao-principal,
+  .contato,
+  .sobre {
+    padding: 18px 2vw;
+  }
+  .pagina-principal h1 {
+    font-size: 1.1rem;
+    top: 8%;
+    padding: 0 5vw;
+  }
+  .servicos li {
+    font-size: 1rem;
+    padding: 12px 8px;
+  }
+  .depoimento {
+    max-width: 98vw;
+    padding: 12px 8vw;
+  }
+  body {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina-principal > div,
+  .pagina-principal img {
+    height: 30vh;
+    min-height: 28vh;
+    max-height: 38vh;
+  }
+  .botao-whatsapp {
+    right: 10px;
+    bottom: 10px;
+  }
+  .pagina-principal img {
+    width: 100vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .pagina-principal img {
+    width: 100vw;
+  }
+}
